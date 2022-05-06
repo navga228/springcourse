@@ -8,9 +8,10 @@ public class TestSpring {
         // ClassPathXmlApplicationContext Этот класс отвечает за то чтобы считать файл applicationContext.xml, считывает его и помещает все бины которые там описаны в applicationContext
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        Music music = context.getBean("musicBean", Music.class);
+//        Music music = context.getBean("musicBean", Music.class);
+//        MusicPlayer musicPlayer = new MusicPlayer(music);
 
-        MusicPlayer musicPlayer = new MusicPlayer(music);
+        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
 
         musicPlayer.playMusic();
 

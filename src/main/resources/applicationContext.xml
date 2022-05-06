@@ -11,4 +11,9 @@
           class="ru.navga228.springcourse.RockMusic">
     </bean>
 
+    <bean id="musicPlayer"
+          class="ru.navga228.springcourse.MusicPlayer">
+            <constructor-arg ref="musicBean"/>
+    </bean>
+
 </beans>
