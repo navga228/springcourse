@@ -11,9 +11,35 @@
           class="ru.navga228.springcourse.RockMusic">
     </bean>
 
+    <!-- Внедрение зависимостей через конструктор
     <bean id="musicPlayer"
           class="ru.navga228.springcourse.MusicPlayer">
             <constructor-arg ref="musicBean"/>
+    </bean> -->
+
+    <!-- Внедрение зависимостей через сееттер
+    <bean id="musicPlayer"
+          class="ru.navga228.springcourse.MusicPlayer">
+        <property name="music" ref="musicBean"/>
+    </bean> -->
+
+    <!-- Внедрение числовых зависимостей
+    <bean id="musicPlayer"
+          class="ru.navga228.springcourse.MusicPlayer">
+        <property name="music" ref="musicBean"/>
+        <property name="name" value="some name"/>
+        <property name="volume" value="50"/>
+    </bean> -->
+
+    <!-- Внедрение числовых зависимостей с файла -->
+    <context:property-placeholder location="classpath:musicPlayer.properties"/> <!-- Указываем файл с которого будут браться значения.
+    В этом файле данные хранятся как ключ значение-->
+
+    <bean id="musicPlayer"
+          class="ru.navga228.springcourse.MusicPlayer">
+        <property name="music" ref="musicBean"/>
+        <property name="name" value="${musicPlayer.name}"/>
+        <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
 
 </beans>
