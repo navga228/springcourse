@@ -8,7 +8,12 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean id="musicBean"
-          class="ru.navga228.springcourse.RockMusic">
+          class="ru.navga228.springcourse.ClassicalMusic"
+          scope="prototype"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          factory-method="getClassicalMusic"
+    >
     </bean>
 
     <!-- Внедрение зависимостей через конструктор
