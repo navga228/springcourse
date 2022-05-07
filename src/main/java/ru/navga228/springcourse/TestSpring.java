@@ -14,11 +14,17 @@ public class TestSpring {
 //        MusicPlayer firstMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
 //        MusicPlayer secondMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
 
-        ClassicalMusic firstClassicalMusic = context.getBean("musicBean", ClassicalMusic.class);
-        System.out.println(firstClassicalMusic.GetMusic());
+        Music music1 = context.getBean("classicalMusic", Music.class);
 
-        ClassicalMusic secondClassicalMusic = context.getBean("musicBean", ClassicalMusic.class);
-        System.out.println(secondClassicalMusic.GetMusic());
+        MusicPlayer classicalMusicPlayer = new MusicPlayer(music1);
+
+        classicalMusicPlayer.playMusic();
+
+        Music music2 = context.getBean("rockMusic", Music.class);
+
+        MusicPlayer rockMusicPlayer = new MusicPlayer(music2);
+
+        rockMusicPlayer.playMusic();
 
         context.close(); // После работы с applicationContex'ом его нужно обязательно закрывать
     }

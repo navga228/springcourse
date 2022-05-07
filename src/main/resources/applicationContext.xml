@@ -7,14 +7,16 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="musicBean"
+    <context:component-scan base-package="ru.navga228.springcourse"/>
+
+    <!--<bean id="musicBean"
           class="ru.navga228.springcourse.ClassicalMusic"
           scope="prototype"
           init-method="doMyInit"
           destroy-method="doMyDestroy"
           factory-method="getClassicalMusic"
     >
-    </bean>
+    </bean>-->
 
     <!-- Внедрение зависимостей через конструктор
     <bean id="musicPlayer"
@@ -37,16 +39,16 @@
     </bean> -->
 
     <!-- Внедрение числовых зависимостей с файла -->
-    <context:property-placeholder location="classpath:musicPlayer.properties"/> <!-- Указываем файл с которого будут браться значения.
+    <!--<context:property-placeholder location="classpath:musicPlayer.properties"/>--> <!-- Указываем файл с которого будут браться значения.
     В этом файле данные хранятся как ключ значение-->
 
-    <bean id="musicPlayer"
+    <!--<bean id="musicPlayer"
           class="ru.navga228.springcourse.MusicPlayer"
           scope="prototype"
-    > <!-- Указываем область видимости бинов в scope. Prototype каждый раз создает новый бин при вызове getBean -->
+    > &lt;!&ndash; Указываем область видимости бинов в scope. Prototype каждый раз создает новый бин при вызове getBean &ndash;&gt;
         <property name="music" ref="musicBean"/>
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+    </bean>-->
 
 </beans>
