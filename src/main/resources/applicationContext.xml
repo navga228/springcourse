@@ -36,7 +36,9 @@
     В этом файле данные хранятся как ключ значение-->
 
     <bean id="musicPlayer"
-          class="ru.navga228.springcourse.MusicPlayer">
+          class="ru.navga228.springcourse.MusicPlayer"
+          scope="prototype"
+    > <!-- Указываем область видимости бинов в scope. Prototype каждый раз создает новый бин при вызове getBean -->
         <property name="music" ref="musicBean"/>
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
