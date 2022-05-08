@@ -14,17 +14,9 @@ public class TestSpring {
 //        MusicPlayer firstMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
 //        MusicPlayer secondMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
 
-        Music music1 = context.getBean("classicalMusic", Music.class);
+        Computer computer = context.getBean("computer", Computer.class);
 
-        MusicPlayer classicalMusicPlayer = new MusicPlayer(music1);
-
-        classicalMusicPlayer.playMusic();
-
-        Music music2 = context.getBean("rockMusic", Music.class);
-
-        MusicPlayer rockMusicPlayer = new MusicPlayer(music2);
-
-        rockMusicPlayer.playMusic();
+        System.out.println(computer);
 
         context.close(); // После работы с applicationContex'ом его нужно обязательно закрывать
     }

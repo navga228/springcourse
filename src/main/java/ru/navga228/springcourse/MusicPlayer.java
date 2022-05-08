@@ -1,9 +1,22 @@
 package ru.navga228.springcourse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MusicPlayer {
-    private Music music;
+    private ClassicalMusic classicalMusic;
+    private RockMusic rockMusic;
     private String name;
     private int volume;
+
+    @Autowired
+    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
+        this.classicalMusic = classicalMusic;
+        this.rockMusic = rockMusic;
+    }
+
+    public MusicPlayer(){} // Пустой конструктор нужен тк когда мы создаем свой собственный конструктор, то конструктор по умолчанию удаляется
 
     public String getName() {
         return name;
@@ -21,18 +34,7 @@ public class MusicPlayer {
         this.volume = volume;
     }
 
-    public MusicPlayer(Music music) {
-        this.music = music;
-    }
-
-    public MusicPlayer(){} // Пустой конструктор нужен тк когда мы создаем свой собственный конструктор, то конструктор по умолчанию удаляется
-
-    public void setMusic(Music music) {
-        this.music = music;
-    }
-
-
-    public void playMusic() {
-        System.out.println("Playing: " + music.GetMusic());
+    public String playMusic() {
+        return "Playing: " + classicalMusic.GetMusic() + " Playing: " + rockMusic.GetMusic();
     }
 }
