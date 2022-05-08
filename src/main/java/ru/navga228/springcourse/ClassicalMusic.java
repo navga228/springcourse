@@ -1,6 +1,8 @@
 package ru.navga228.springcourse;
 
 import org.springframework.stereotype.Component;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 @Component
 public class ClassicalMusic implements Music{
@@ -10,10 +12,12 @@ public class ClassicalMusic implements Music{
         return new ClassicalMusic();
     }
 
+    @PostConstruct
     public void doMyInit(){
         System.out.println("Doing my initialisation");
     }
 
+    @PreDestroy
     public void doMyDestroy(){
         System.out.println("Doing my destruction");
     }
